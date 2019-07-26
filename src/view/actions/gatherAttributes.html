@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- https://forums.adobe.com/thread/2640197 -->
     <meta charset="UTF-8">
     <title>Action</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -11,10 +12,17 @@
       input, label {
         display: block;
       }
+      button {
+        margin-top: 20px;
+      }
     </style>
   </head>
   <body>
     <div id='vue-app'>
+      <h2>Specify Element Attribute names</h2>
+      <p>
+        The attribute names you supply here are what we will try to pull from an element that is clicked in the DOM
+      </p>
       <attribute-name-input
         v-for="(attributeName, index) in attributeNames"
         v-bind:key="index"
