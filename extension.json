@@ -1,0 +1,47 @@
+{
+  "displayName": "BH First Extension",
+  "name": "bh-first-extension",
+  "platform": "web",
+  "version": "1.0.0",
+  "description": "Hello World",
+  "author": {
+    "name": "brenthosie"
+  },
+  "viewBasePath": "src/view/",
+  "dataElements": [
+    {
+      "displayName": "BH Data Element",
+      "name": "bh-data-element",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/bhDataElement.js",
+      "viewPath": "dataElements/bhDataElement.html"
+    }
+  ],
+  "actions": [
+    {
+      "displayName": "Gather Attributes",
+      "name": "gather-attributes",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/actions/gatherAttributes.js",
+      "viewPath": "actions/gatherAttributes.html"
+    },
+    {
+      "displayName": "Ignore Attributes",
+      "name": "ignore-attributes",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/actions/ignoreAttributes.js"
+    }
+  ]
+}

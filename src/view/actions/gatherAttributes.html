@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Action</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .attribute-name {
+        margin: 5px 0;
+      }
+      input, label {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='vue-app'>
+      <attribute-name-input
+        v-for="(attributeName, index) in attributeNames"
+        v-bind:key="index"
+        v-bind:attributeName="attributeName"
+        v-bind:index="index"
+        v-bind:handleChange="handleAttributeNameChange"
+      >
+      </attribute-name-input>
+      <button v-on:click="addAttribute">Add Attribute</button>
+    </div>
+
+    <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+    <script>
+      var myVueApp;
+
+      window.extensionBridge.register({
+        init: function(info) {
+          Vue.component('attribute-name-input', {
+            props: ['attributename', 'handlechange', 'index'],
+            template: '<div class="attribute-name"><label>Attribute {{index + 1}}</label><input class="attribute-name-input" type="text" :value="attributename" @input="handlechange" :data-index="index" required /></div>'
+          })
+
+          var attributeNames = ['']
+
+          if (info.settings) {
+            attributeNames = info.settings.attributeNames
+          }
+
+          myVueApp = new Vue({
+            el: '#vue-app',
+            data: {
+              attributeNames: attributeNames
+            },
+            methods: {
+              addAttribute: function() {
+                this.attributeNames.push('')
+              },
+              handleAttributeNameChange: function(e) {
+                var index = parseInt(e.target.attributes['data-index'].value, 10)
+                this.attributeNames.splice(index, 1, e.target.value)
+              }
+            }
+          })
+        },
+
+        getSettings: function() {
+          return {
+            attributeNames: [],
+          }
+        },
+
+        validate: function() {
+          var filteredItems = myVueApp.attributeNames.filter(function(el) {
+            return !!el
+          })
+
+          return filteredItems.length > 0 && filteredItems.length === myVueApp.attributeNames.length
+        }
+      });
+    </script>
+  </body>
+</html>
