@@ -10,15 +10,14 @@
   "viewBasePath": "src/view/",
   "dataElements": [
     {
-      "displayName": "BH Data Element",
-      "name": "bh-data-element",
+      "displayName": "Gathered Attributes",
+      "name": "gathered-attributes",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
         "properties": {}
       },
-      "libPath": "src/lib/dataElements/bhDataElement.js",
-      "viewPath": "dataElements/bhDataElement.html"
+      "libPath": "src/lib/dataElements/gatheredAttributes.js"
     }
   ],
   "actions": [

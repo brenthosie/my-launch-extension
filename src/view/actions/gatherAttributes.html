@@ -9,8 +9,19 @@
       .attribute-name {
         margin: 5px 0;
       }
-      input, label {
+      label {
         display: block;
+      }
+      .attribute-name-inputs {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .attribute-name-inputs * {
+        margin-right: 5px;
+      }
+      .attribute-name-inputs button {
+        margin: inherit;
       }
       button {
         margin-top: 20px;
@@ -29,6 +40,7 @@
         v-bind:attributeName="attributeName"
         v-bind:index="index"
         v-bind:handleChange="handleAttributeNameChange"
+        v-bind:removeAttribute="removeAttribute"
       >
       </attribute-name-input>
       <button v-on:click="addAttribute">Add Attribute</button>
@@ -41,8 +53,16 @@
       window.extensionBridge.register({
         init: function(info) {
           Vue.component('attribute-name-input', {
-            props: ['attributename', 'handlechange', 'index'],
-            template: '<div class="attribute-name"><label>Attribute {{index + 1}}</label><input class="attribute-name-input" type="text" :value="attributename" @input="handlechange" :data-index="index" required /></div>'
+            props: ['attributename', 'handlechange', 'removeattribute', 'index'],
+            template: '<div class="attribute-name">'+
+              '<label>Attribute {{index + 1}}</label>'+
+                '<div>'+
+                '<div class="attribute-name-inputs">'+
+                  '<input class="attribute-name-input" type="text" :value="attributename" @input="handlechange" :data-index="index" required />'+
+                  '<button :data-index="index" v-on:click="removeattribute">remove</button>'+
+                '</div>'+  
+                '</div>'+  
+              '</div>'
           })
 
           var attributeNames = ['']
@@ -60,26 +80,43 @@
               addAttribute: function() {
                 this.attributeNames.push('')
               },
-              handleAttributeNameChange: function(e) {
+              handleAttributeNameChange: function (e) {
                 var index = parseInt(e.target.attributes['data-index'].value, 10)
                 this.attributeNames.splice(index, 1, e.target.value)
+              },
+              removeAttribute: function (e) {
+                debugger
+                var index = parseInt(e.target.attributes['data-index'].value, 10)
+                this.attributeNames.splice(index, 1)
               }
             }
           })
         },
 
         getSettings: function() {
+          var attributeNames = []
+
+          if (myVueApp && myVueApp.attributeNames) {
+            attributeNames = JSON.parse(JSON.stringify(myVueApp.attributeNames))
+          }
+
           return {
-            attributeNames: [],
+            attributeNames: attributeNames,
           }
         },
 
         validate: function() {
-          var filteredItems = myVueApp.attributeNames.filter(function(el) {
+          var attributeNames = []
+
+          if (myVueApp && myVueApp.attributeNames) {
+            attributeNames = myVueApp.attributeNames
+          }
+
+          var filteredItems = attributeNames.filter(function(el) {
             return !!el
           })
 
-          return filteredItems.length > 0 && filteredItems.length === myVueApp.attributeNames.length
+          return filteredItems.length > 0 && filteredItems.length === attributeNames.length
         }
       });
     </script>
