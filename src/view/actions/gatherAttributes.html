@@ -26,6 +26,9 @@
       button {
         margin-top: 20px;
       }
+      .req {
+        color: firebrick;
+      }
     </style>
   </head>
   <body>
@@ -55,14 +58,14 @@
           Vue.component('attribute-name-input', {
             props: ['attributename', 'handlechange', 'removeattribute', 'index'],
             template: '<div class="attribute-name">'+
-              '<label>Attribute {{index + 1}}</label>'+
-                '<div>'+
+              '<label>Attribute {{index + 1}} <span class="req">*</span></label>'+
+              '<div>'+
                 '<div class="attribute-name-inputs">'+
                   '<input class="attribute-name-input" type="text" :value="attributename" @input="handlechange" :data-index="index" required />'+
                   '<button :data-index="index" v-on:click="removeattribute">remove</button>'+
-                '</div>'+  
-                '</div>'+  
-              '</div>'
+                '</div>'+
+              '</div>'+
+            '</div>'
           })
 
           var attributeNames = ['']
@@ -115,7 +118,18 @@
             return !!el
           })
 
-          return filteredItems.length > 0 && filteredItems.length === attributeNames.length
+          var isHtmlFormValid = true
+          document.querySelectorAll('.attribute-name-input').forEach(function(el) {
+            var isElValid = el.checkValidity()
+            if (!isElValid) {
+              el.reportValidity()
+            }
+            isHtmlFormValid = isHtmlFormValid && isElValid
+          })
+
+          var isDataValid = filteredItems.length > 0 && filteredItems.length === attributeNames.length
+          
+          return isHtmlFormValid && isDataValid
         }
       });
     </script>
