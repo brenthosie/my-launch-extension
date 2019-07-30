@@ -1,7 +1,7 @@
 module.exports = {
   "dataElements": {},
   "rules": [{
-    "id": "RL1564422765135",
+    "id": "RL1564430564491",
     "name": "Click Any Element",
     "events": [{
       "modulePath": "sandbox/click.js",
@@ -10,7 +10,7 @@ module.exports = {
     "actions": [{
       "modulePath": "bh-first-extension/src/lib/actions/gatherAttributes.js",
       "settings": {
-        "attributeNames": ["bh-src-id"]
+        "attributeNames": ["bh-src-id", "crst-text"]
       }
     }]
   }],
@@ -25,8 +25,8 @@ module.exports = {
   },
   "buildInfo": {
     "turbineVersion": "25.6.0",
-    "turbineBuildDate": "2019-07-29T17:52:52.290Z",
-    "buildDate": "2019-07-29T17:52:52.290Z",
+    "turbineBuildDate": "2019-07-30T14:07:01.921Z",
+    "buildDate": "2019-07-30T14:07:01.921Z",
     "environment": "development"
   }
 }
