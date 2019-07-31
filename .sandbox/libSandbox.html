@@ -10,6 +10,13 @@
   <link href="sandbox.css" rel="stylesheet" type="text/css">
   <script src="container.js"></script>
   <script src="engine.js"></script>
+
+  <style>
+    button {
+      display: block;
+      margin: 10px;
+    }
+  </style>
 </head>
 
 <body class="spectrum spectrum--light">
@@ -23,7 +30,10 @@
   Modify .sandbox/container.js and .sandbox/libSandbox.html then test the result here. Check out
   <a href="https://www.npmjs.com/package/@adobe/reactor-sandbox#configuring-the-sandbox" target="_blank">documentation</a> on how to generate the `.sandbox` files.
 
-  <button bh-src-id="hello">click me</button>
+  <button bh-src-id="hello">click me, 1 attribute match</button>
+  <button bh-src-id="hello" crst-text="crst-text-value" cid1="cid1">click me, many attribute matches</button>
+  <button cid1="cid1">click me, attributes, no matches</button>
+  <button>click me, no attributes</button>
 
   <script>_satellite.pageBottom();</script>
 </body>

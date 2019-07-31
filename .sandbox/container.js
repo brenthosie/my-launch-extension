@@ -25,8 +25,8 @@ module.exports = {
   },
   "buildInfo": {
     "turbineVersion": "25.6.0",
-    "turbineBuildDate": "2019-07-30T14:07:01.921Z",
-    "buildDate": "2019-07-30T14:07:01.921Z",
+    "turbineBuildDate": "2019-07-31T14:48:22.728Z",
+    "buildDate": "2019-07-31T14:48:22.728Z",
     "environment": "development"
   }
 }
