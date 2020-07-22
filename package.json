@@ -1,0 +1,15 @@
+{
+  "name": "my-launch-extension",
+  "version": "1.0.0",
+  "description": "Gather the values for matching attributes when clicking on DOM elements.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy:dev": "npm run bundle && npx @adobe/reactor-uploader --private-key=/etc/ssl/certs/adobe-launch-private.key --org-id=3F6F04135D388C660A49410F@AdobeOrg --tech-account-id=4731084C5D41B15A0A494214@techacct.adobe.com --api-key=a01705fd57c14de686cc16712a05966a --client-secret=5d2412b7-afe1-4593-a967-789b99d3b875 --environment=qe",
+    "bundle": "npx @adobe/reactor-packager",
+    "release": "npx @adobe/reactor-releaser --private-key=/etc/ssl/certs/adobe-launch-private.key --org-id=3F6F04135D388C660A49410F@AdobeOrg --tech-account-id=4731084C5D41B15A0A494214@techacct.adobe.com --api-key=a01705fd57c14de686cc16712a05966a --client-secret=5d2412b7-afe1-4593-a967-789b99d3b875 --environment=qe"
+  },
+  "author": "Brent Hosie",
+  "license": "ISC",
+  "dependencies": {}
+}
