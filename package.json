@@ -1,6 +1,6 @@
 {
   "name": "my-launch-extension",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "Gather the values for matching attributes when clicking on DOM elements.",
   "main": "index.js",
   "scripts": {

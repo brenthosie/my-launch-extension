@@ -2,7 +2,7 @@
   "displayName": "BH First Extension",
   "name": "bh-first-extension",
   "platform": "web",
-  "version": "1.0.1",
+  "version": "3.0.0",
   "description": "Hello World",
   "author": {
     "name": "brenthosie"
