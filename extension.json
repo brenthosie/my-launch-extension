@@ -18,6 +18,27 @@
         "properties": {}
       },
       "libPath": "src/lib/dataElements/gatheredAttributes.js"
+    },
+    {
+      "displayName": "myFileTransform",
+      "name": "myfiletransform",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "jsCode": {
+            "type": "string"
+          }
+        }
+      },
+      "libPath": "src/lib/dataElements/myfiletransform.js",
+      "viewPath": "dataElements/myfiletransform.html",
+      "transforms": [
+        {
+          "type": "file",
+          "propertyPath": "myfiletransform.jsCode"
+        }
+      ]
     }
   ],
   "actions": [
