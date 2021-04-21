@@ -36,7 +36,7 @@
       "transforms": [
         {
           "type": "file",
-          "propertyPath": "myfiletransform.jsCode"
+          "propertyPath": "jsCode"
         }
       ]
     }
