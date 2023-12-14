@@ -1,0 +1,1 @@
+npx @adobe/reactor-releaser --environment=qe --private-key=/Users/bhosie/Documents/projects/RELEASE_CREDENTIALS/3F6F04135D388C660A49410F@AdobeOrg.key --org-id=3F6F04135D388C660A49410F@AdobeOrg --tech-account-id=1A6A29146078C81D0A49420A@techacct.adobe.com --api-key=7d63886e9b1846b38ba2c1c53edf3cbe --client-secret=ed808189-a434-4711-85ed-836e77f22baf --verbose

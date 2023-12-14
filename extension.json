@@ -1,8 +1,8 @@
 {
-  "displayName": "BH First Extension",
-  "name": "bh-first-extension",
+  "displayName": "BH second Extension",
+  "name": "bh-second-extension",
   "platform": "web",
-  "version": "3.0.1",
+  "version": "4.0.18",
   "description": "Hello World",
   "author": {
     "name": "brenthosie"
