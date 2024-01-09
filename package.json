@@ -12,10 +12,8 @@
   },
   "author": "Brent Hosie",
   "license": "ISC",
-  "dependencies": {
-    "@adobe/reactor-uploader": "^5.1.1-beta.5"
-  },
   "devDependencies": {
-    "@adobe/reactor-sandbox": "^12.4.0-beta.1"
+    "@adobe/reactor-sandbox": "^12.4.0-beta.1",
+    "@adobe/reactor-uploader": "^6.0.0-beta.3"
   }
 }
